@@ -1,0 +1,148 @@
+<project name="translateDoc" default="makejar">
+
+	<property name="commons-codec-1.4.jar" value="commons-codec-1.4.jar" />
+	<property name="commons-lang3-3.0.1.jar" value="commons-lang3-3.0.1.jar" />
+	<property name="commons-logging-1.1.1.jar" value="commons-logging-1.1.1.jar" />
+	<property name="google-translate-api-v2-java-core-0.52.jar" value="google-translate-api-v2-java-core-0.52.jar" />
+	<property name="httpclient-4.1.2.jar" value="httpclient-4.1.2.jar" />
+	<property name="httpclient-cache-4.1.2.jar" value="httpclient-cache-4.1.2.jar" />
+	<property name="httpcore-4.1.2.jar" value="httpcore-4.1.2.jar" />
+	<property name="jackson-core-asl-1.9.0.jar" value="jackson-core-asl-1.9.0.jar" />
+	<property name="jackson-jaxrs-1.9.0.jar" value="jackson-jaxrs-1.9.0.jar" />
+	<property name="jackson-mapper-asl-1.9.0.jar" value="jackson-mapper-asl-1.9.0.jar" />
+	<property name="jackson-xc-1.9.0.jar" value="jackson-xc-1.9.0.jar" />
+	<property name="jaxen-1.1.3.jar" value="jaxen-1.1.3.jar" />
+	<property name="jdom-2.0.2.jar" value="jdom-2.0.2.jar" />
+	<property name="slf4j-api-1.6.2.jar" value="slf4j-api-1.6.2.jar" />
+	<property name="xercesImpl.jar" value="xercesImpl.jar" />
+	<property name="xml-apis.jar" value="xml-apis.jar" />
+
+	<path id="compile.classpath">
+		<pathelement location="lib/${commons-codec-1.4.jar}" />
+		<pathelement location="lib/${commons-lang3-3.0.1.jar}" />
+		<pathelement location="lib/${commons-logging-1.1.1.jar}" />
+		<pathelement location="lib/${google-translate-api-v2-java-core-0.52.jar}" />
+		<pathelement location="lib/${httpclient-4.1.2.jar}" />
+		<pathelement location="lib/${httpclient-cache-4.1.2.jar}" />
+		<pathelement location="lib/${httpcore-4.1.2.jar}" />
+		<pathelement location="lib/${jackson-core-asl-1.9.0.jar}" />
+		<pathelement location="lib/${jackson-jaxrs-1.9.0.jar}" />
+		<pathelement location="lib/${jackson-mapper-asl-1.9.0.jar}" />
+		<pathelement location="lib/${jackson-xc-1.9.0.jar}" />
+		<pathelement location="lib/${jaxen-1.1.3.jar}" />
+		<pathelement location="lib/${jdom-2.0.2.jar}" />
+		<pathelement location="lib/${slf4j-api-1.6.2.jar}" />
+		<pathelement location="lib/${xercesImpl.jar}" />
+		<pathelement location="lib/${xml-apis.jar}" />
+		<pathelement location="classes" />
+	</path>
+
+	<target name="makedirs">
+		<mkdir dir="classes" />
+	</target>
+
+	<target name="compile" depends="makedirs">
+		<javac srcdir="src" destdir="classes" debug="true" classpathref="compile.classpath" />
+	</target>
+
+	<target name="unjar2classes" depends="compile">
+		<!-- unjar dependents into classes dir -->
+		<unjar src="lib/${commons-codec-1.4.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${commons-lang3-3.0.1.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${commons-logging-1.1.1.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${google-translate-api-v2-java-core-0.52.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${httpclient-4.1.2.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${httpclient-cache-4.1.2.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${httpcore-4.1.2.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jackson-core-asl-1.9.0.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jackson-jaxrs-1.9.0.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jackson-mapper-asl-1.9.0.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jackson-xc-1.9.0.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jaxen-1.1.3.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${jdom-2.0.2.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${slf4j-api-1.6.2.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${xercesImpl.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+		<unjar src="lib/${xml-apis.jar}" dest="classes">
+			<patternset>
+				<exclude name="META-INF/**" />
+			</patternset>
+		</unjar>
+	</target>
+
+	<target name="makejar" depends="unjar2classes">
+		<jar destfile="translateDita.jar" basedir="classes">
+			<manifest>
+				<attribute name="Main-Class" value="ditatools.translate.TranslateMain" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="test.compile" depends="compile">
+		<javac srcdir="test/src" destdir="classes" classpathref="compile.classpath" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="classes" />
+	</target>
+
+</project>
